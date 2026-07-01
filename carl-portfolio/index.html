@@ -5,6 +5,13 @@
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Carl Louise Cena — Quality Engineering Associate</title>
 <meta name="description" content="Portfolio of Carl Louise Cena — Quality Engineering Associate at Accenture. Test Automation, AI-Enabled QA, Selenium, Cypress, Playwright." />
+<meta name="theme-color" content="#0a0f1c" />
+
+<!-- Open Graph -->
+<meta property="og:title" content="Carl Louise Cena — QE Portfolio" />
+<meta property="og:description" content="Quality Engineering Associate specializing in Test Automation & AI-Enabled QA." />
+<meta property="og:type" content="website" />
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -19,7 +26,12 @@
           ink:    { 950:'#0a0f1c', 900:'#0d1426', 800:'#111a31', 700:'#172241' },
           accent: { 400:'#22d3ee', 500:'#06b6d4', 600:'#0891b2' },
         },
-        boxShadow: { glow: '0 0 40px -10px rgba(34,211,238,0.45)' }
+        boxShadow: { glow: '0 0 40px -10px rgba(34,211,238,0.45)' },
+        animation: {
+          'float': 'float 6s ease-in-out infinite',
+          'float-delayed': 'float 6s ease-in-out 2s infinite',
+          'gradient': 'gradient 8s ease infinite',
+        }
       }
     }
   }
@@ -27,48 +39,91 @@
 </head>
 <body class="bg-ink-950 text-slate-200 antialiased selection:bg-accent-500/30 selection:text-white">
 
+<!-- PRELOADER -->
+<div id="preloader" class="fixed inset-0 z-[100] bg-ink-950 flex items-center justify-center transition-opacity duration-700">
+  <div class="font-mono text-4xl text-accent-400 animate-pulse">&lt;CLC /&gt;</div>
+</div>
+
+<!-- SCROLL PROGRESS BAR -->
+<div id="scrollProgress" class="fixed top-0 left-0 h-[3px] bg-gradient-to-r from-accent-400 via-cyan-300 to-indigo-400 z-[60] w-0 transition-[width] duration-100"></div>
+
+<!-- NOISE OVERLAY -->
+<div class="noise-overlay pointer-events-none fixed inset-0 z-[1] opacity-[0.025]"></div>
+
 <!-- NAV -->
-<header id="nav" class="fixed top-0 inset-x-0 z-50 backdrop-blur bg-ink-950/70 border-b border-white/5">
+<header id="nav" class="fixed top-0 inset-x-0 z-50 backdrop-blur-lg bg-ink-950/70 border-b border-white/5 transition-all duration-300">
   <nav class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-    <a href="#home" class="font-mono text-accent-400 font-bold tracking-tight">&lt;CLC /&gt;</a>
+    <a href="#home" class="font-mono text-accent-400 font-bold tracking-tight text-lg hover:text-accent-300 transition">&lt;CLC /&gt;</a>
     <ul class="hidden md:flex gap-8 text-sm">
-      <li><a class="nav-link" href="#about">About</a></li>
-      <li><a class="nav-link" href="#skills">Skills</a></li>
-      <li><a class="nav-link" href="#experience">Experience</a></li>
-      <li><a class="nav-link" href="#projects">Projects</a></li>
-      <li><a class="nav-link" href="#certs">Certifications</a></li>
-      <li><a class="nav-link" href="#contact">Contact</a></li>
+      <li><a class="nav-link" href="#about"><span class="font-mono text-accent-400 mr-1">01.</span>About</a></li>
+      <li><a class="nav-link" href="#skills"><span class="font-mono text-accent-400 mr-1">02.</span>Skills</a></li>
+      <li><a class="nav-link" href="#experience"><span class="font-mono text-accent-400 mr-1">03.</span>Experience</a></li>
+      <li><a class="nav-link" href="#projects"><span class="font-mono text-accent-400 mr-1">04.</span>Projects</a></li>
+      <li><a class="nav-link" href="#certs"><span class="font-mono text-accent-400 mr-1">05.</span>Certs</a></li>
     </ul>
-    <a href="#contact" class="hidden md:inline-flex items-center gap-2 text-sm px-4 py-2 rounded-full bg-accent-500/10 border border-accent-400/40 text-accent-400 hover:bg-accent-500/20 transition">Get in touch</a>
+    <a href="assets/CarlLouiseCena_Resume.pdf" download class="hidden md:inline-flex items-center gap-2 text-sm px-4 py-2 rounded-full bg-accent-500/10 border border-accent-400/40 text-accent-400 hover:bg-accent-500/20 hover:shadow-glow transition">
+      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v12m0 0l-4-4m4 4l4-4M4 20h16"/></svg>
+      Resume
+    </a>
     <button id="burger" class="md:hidden text-slate-200" aria-label="Menu">
       <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h18M4 13h18M4 19h18"/></svg>
     </button>
   </nav>
-  <div id="mobileMenu" class="hidden md:hidden border-t border-white/5 bg-ink-900">
+  <div id="mobileMenu" class="hidden md:hidden border-t border-white/5 bg-ink-900/95 backdrop-blur">
     <ul class="px-6 py-4 space-y-3 text-sm">
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#certs">Certifications</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#about"><span class="font-mono text-accent-400 mr-2">01.</span>About</a></li>
+      <li><a href="#skills"><span class="font-mono text-accent-400 mr-2">02.</span>Skills</a></li>
+      <li><a href="#experience"><span class="font-mono text-accent-400 mr-2">03.</span>Experience</a></li>
+      <li><a href="#projects"><span class="font-mono text-accent-400 mr-2">04.</span>Projects</a></li>
+      <li><a href="#certs"><span class="font-mono text-accent-400 mr-2">05.</span>Certifications</a></li>
+      <li><a href="#contact"><span class="font-mono text-accent-400 mr-2">06.</span>Contact</a></li>
+      <li class="pt-2"><a href="assets/CarlLouiseCena_Resume.pdf" download class="inline-block px-4 py-2 rounded-full border border-accent-400/40 text-accent-400">Download Resume</a></li>
     </ul>
   </div>
 </header>
 
+<!-- SIDE SOCIAL RAIL (desktop) -->
+<aside class="hidden lg:flex fixed left-6 bottom-0 z-40 flex-col items-center gap-5 after:content-[''] after:w-px after:h-24 after:bg-slate-600 after:mt-4">
+  <a href="https://linkedin.com/in/caarlcena" target="_blank" rel="noopener" aria-label="LinkedIn" class="social-icon">
+    <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"/></svg>
+  </a>
+  <a href="https://github.com/caarlcena" target="_blank" rel="noopener" aria-label="GitHub" class="social-icon">
+    <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .5C5.73.5.5 5.73.5 12A11.5 11.5 0 008.36 22.94c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.51-1.47.11-3.07 0 0 .97-.31 3.18 1.18a11.02 11.02 0 015.79 0c2.21-1.49 3.18-1.18 3.18-1.18.62 1.6.23 2.78.11 3.07.74.81 1.19 1.84 1.19 3.1 0 4.43-2.7 5.4-5.26 5.69.41.35.78 1.05.78 2.12v3.14c0 .31.21.67.8.56A11.5 11.5 0 0023.5 12C23.5 5.73 18.27.5 12 .5z"/></svg>
+  </a>
+  <a href="mailto:caarlcena@gmail.com" aria-label="Email" class="social-icon">
+    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l9 6 9-6M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+  </a>
+</aside>
+
+<!-- SIDE EMAIL RAIL (desktop) -->
+<aside class="hidden lg:flex fixed right-6 bottom-0 z-40 flex-col items-center gap-5 after:content-[''] after:w-px after:h-24 after:bg-slate-600 after:mt-4">
+  <a href="mailto:caarlcena@gmail.com" class="font-mono text-xs text-slate-400 hover:text-accent-400 transition tracking-widest [writing-mode:vertical-rl]">caarlcena@gmail.com</a>
+</aside>
+
 <!-- HERO -->
 <section id="home" class="relative min-h-screen flex items-center pt-24 overflow-hidden">
   <div class="hero-grid absolute inset-0 opacity-30 pointer-events-none"></div>
-  <div class="absolute -top-40 -right-40 w-[480px] h-[480px] bg-accent-500/20 rounded-full blur-3xl"></div>
-  <div class="absolute -bottom-40 -left-40 w-[480px] h-[480px] bg-indigo-500/10 rounded-full blur-3xl"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+
   <div class="relative max-w-6xl mx-auto px-6 grid md:grid-cols-5 gap-10 items-center">
     <div class="md:col-span-3 reveal">
+      <!-- Availability pill -->
+      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-400/30 text-emerald-300 text-xs font-mono mb-6">
+        <span class="relative flex h-2 w-2">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
+        </span>
+        Open to opportunities
+      </div>
+
       <p class="font-mono text-accent-400 text-sm mb-4">Hello there, I am</p>
       <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight text-white leading-[1.05]">
-        Carl Louise <span class="text-accent-400">Cena</span>.
+        Carl Louise <span class="gradient-text">Cena</span>.
       </h1>
-      <h2 class="mt-4 text-2xl md:text-3xl text-slate-400 font-semibold">
-        I break software — so users don't have to.
+      <h2 class="mt-4 text-2xl md:text-3xl text-slate-400 font-semibold min-h-[2.5rem]">
+        I <span id="typed" class="text-accent-400">break software</span><span class="cursor">|</span>
       </h2>
       <p class="mt-6 max-w-2xl text-slate-400 leading-relaxed">
         Quality Engineering Associate at <span class="text-slate-200">Accenture</span> with 2+ years of hands-on experience in
@@ -76,17 +131,24 @@
         Passionate about <span class="text-accent-400">AI-Enabled QA</span>, automation frameworks, and continuous learning.
       </p>
       <div class="mt-8 flex flex-wrap gap-4">
-        <a href="#projects" class="px-6 py-3 rounded-full bg-accent-500 hover:bg-accent-400 text-ink-950 font-semibold shadow-glow transition">View my work</a>
+        <a href="#projects" class="group px-6 py-3 rounded-full bg-accent-500 hover:bg-accent-400 text-ink-950 font-semibold shadow-glow transition inline-flex items-center gap-2">
+          View my work
+          <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+        </a>
         <a href="#contact" class="px-6 py-3 rounded-full border border-white/15 hover:border-accent-400 hover:text-accent-400 transition">Contact me</a>
       </div>
       <div class="mt-10 flex flex-wrap gap-6 text-sm text-slate-500 font-mono">
-        <span>📍 Cebu City, Philippines</span>
-        <span>✉ caarlcena@gmail.com</span>
+        <span class="flex items-center gap-2">📍 Cebu City, Philippines</span>
+        <button id="copyEmail" class="flex items-center gap-2 hover:text-accent-400 transition" aria-label="Copy email">
+          ✉ caarlcena@gmail.com
+          <span id="copyStatus" class="text-accent-400 opacity-0 transition-opacity">Copied!</span>
+        </button>
       </div>
     </div>
     <div class="md:col-span-2 reveal">
       <div class="relative mx-auto w-64 h-64 md:w-80 md:h-80">
-        <div class="absolute inset-0 rounded-3xl border border-accent-400/40 rotate-6"></div>
+        <div class="absolute inset-0 rounded-3xl border border-accent-400/40 rotate-6 animate-pulse"></div>
+        <div class="absolute inset-0 rounded-3xl border border-indigo-400/20 -rotate-3"></div>
         <div class="absolute inset-0 rounded-3xl bg-gradient-to-br from-accent-500/20 to-indigo-500/10 backdrop-blur flex items-center justify-center">
           <div class="text-center">
             <img src="assets/portrait.svg" alt="Carl Louise Cena" class="mx-auto w-36 h-36 md:w-44 md:h-44 rounded-full object-cover border border-accent-400/30 shadow-glow" />
@@ -97,7 +159,7 @@
       </div>
     </div>
   </div>
-  <a href="#about" class="absolute bottom-6 left-1/2 -translate-x-1/2 text-slate-500 text-xs font-mono animate-bounce">scroll ↓</a>
+  <a href="#about" class="absolute bottom-6 left-1/2 -translate-x-1/2 text-slate-500 text-xs font-mono animate-bounce hover:text-accent-400 transition">scroll ↓</a>
 </section>
 
 <!-- ABOUT -->
@@ -105,32 +167,32 @@
   <div class="flex items-center gap-4 mb-10">
     <span class="font-mono text-accent-400">01.</span>
     <h2 class="text-3xl md:text-4xl font-bold text-white">About me</h2>
-    <span class="flex-1 h-px bg-white/10"></span>
+    <span class="flex-1 h-px bg-gradient-to-r from-white/10 to-transparent"></span>
   </div>
   <div class="grid md:grid-cols-3 gap-10">
     <div class="md:col-span-2 space-y-4 text-slate-400 leading-relaxed">
       <p>I'm a results-driven <span class="text-accent-400">Quality Engineering Associate</span> based in Cebu City, Philippines, with proven expertise in <span class="text-slate-200">Selenium WebDriver (Java)</span>, <span class="text-slate-200">Cypress (JavaScript)</span>, and <span class="text-slate-200">Playwright</span> for end-to-end web application testing.</p>
       <p>I'm adept at leveraging <span class="text-slate-200">Azure DevOps</span> for defect lifecycle management and collaborating cross-functionally with developers, business analysts, and stakeholders to deliver high-quality releases.</p>
       <p>I have a strong foundation in Computer Engineering and I'm Microsoft Azure (AZ-900), Power Platform (PL-900), and Tricentis Tosca certified. Outside of regression cycles, you'll find me exploring how <span class="text-accent-400">Generative AI</span> can supercharge QA workflows.</p>
-      <p class="text-slate-300 font-medium">A few things I bring to the table:</p>
+      <p class="text-slate-300 font-medium pt-2">A few things I bring to the table:</p>
       <ul class="grid grid-cols-2 gap-2 font-mono text-sm">
-        <li>▸ Hybrid QA Skillset</li>
-        <li>▸ AI-Forward Mindset</li>
-        <li>▸ Agile Collaborator</li>
-        <li>▸ Continuous Learner</li>
+        <li class="flex items-center gap-2"><span class="text-accent-400">▸</span> Hybrid QA Skillset</li>
+        <li class="flex items-center gap-2"><span class="text-accent-400">▸</span> AI-Forward Mindset</li>
+        <li class="flex items-center gap-2"><span class="text-accent-400">▸</span> Agile Collaborator</li>
+        <li class="flex items-center gap-2"><span class="text-accent-400">▸</span> Continuous Learner</li>
       </ul>
     </div>
     <div class="space-y-4">
-      <div class="p-6 rounded-2xl bg-ink-900 border border-white/5">
-        <div class="text-4xl font-extrabold text-accent-400">2+</div>
+      <div class="stat-card">
+        <div class="text-4xl font-extrabold gradient-text" data-count="2">0</div>
         <div class="text-slate-400 text-sm mt-1">Years in QA</div>
       </div>
-      <div class="p-6 rounded-2xl bg-ink-900 border border-white/5">
-        <div class="text-4xl font-extrabold text-accent-400">3</div>
+      <div class="stat-card">
+        <div class="text-4xl font-extrabold gradient-text" data-count="3">0</div>
         <div class="text-slate-400 text-sm mt-1">Certifications</div>
       </div>
-      <div class="p-6 rounded-2xl bg-ink-900 border border-white/5">
-        <div class="text-4xl font-extrabold text-accent-400">∞</div>
+      <div class="stat-card">
+        <div class="text-4xl font-extrabold gradient-text">∞</div>
         <div class="text-slate-400 text-sm mt-1">Bugs squashed</div>
       </div>
     </div>
@@ -142,11 +204,11 @@
   <div class="flex items-center gap-4 mb-10">
     <span class="font-mono text-accent-400">02.</span>
     <h2 class="text-3xl md:text-4xl font-bold text-white">Core Competencies</h2>
-    <span class="flex-1 h-px bg-white/10"></span>
+    <span class="flex-1 h-px bg-gradient-to-r from-white/10 to-transparent"></span>
   </div>
   <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-    <!-- cards -->
     <div class="skill-card">
+      <div class="skill-icon">🧪</div>
       <h3>Quality Assurance & Testing</h3>
       <div class="chips">
         <span>Manual Testing</span><span>Regression Testing</span><span>Functional Testing</span>
@@ -154,6 +216,7 @@
       </div>
     </div>
     <div class="skill-card">
+      <div class="skill-icon">🤖</div>
       <h3>Test Automation</h3>
       <div class="chips">
         <span>Selenium WebDriver (Java)</span><span>Cypress (JavaScript)</span><span>Playwright</span>
@@ -161,6 +224,7 @@
       </div>
     </div>
     <div class="skill-card">
+      <div class="skill-icon">🐛</div>
       <h3>Defect Management</h3>
       <div class="chips">
         <span>Azure DevOps</span><span>Bug Reporting</span>
@@ -168,6 +232,7 @@
       </div>
     </div>
     <div class="skill-card">
+      <div class="skill-icon">💻</div>
       <h3>Programming & Tools</h3>
       <div class="chips">
         <span>Java</span><span>JavaScript</span><span>HTML</span><span>CSS</span>
@@ -175,17 +240,47 @@
       </div>
     </div>
     <div class="skill-card">
+      <div class="skill-icon">🔄</div>
       <h3>Methodologies</h3>
       <div class="chips">
         <span>Agile</span><span>Scrum</span><span>SDLC</span><span>STLC</span><span>Cross-Team Collaboration</span>
       </div>
     </div>
     <div class="skill-card">
+      <div class="skill-icon">✨</div>
       <h3>AI-Enabled QA</h3>
       <div class="chips">
         <span>GitHub Copilot</span><span>Microsoft 365 Copilot</span><span>OpenAI Codex</span>
         <span>Cursor</span><span>Claude Code</span>
       </div>
+    </div>
+  </div>
+
+  <!-- Skill proficiency bars -->
+  <div class="mt-16 grid md:grid-cols-2 gap-x-12 gap-y-6">
+    <div class="proficiency">
+      <div class="flex justify-between mb-2"><span>Manual & Regression Testing</span><span class="font-mono text-accent-400">Expert</span></div>
+      <div class="bar"><div class="fill" style="width:92%"></div></div>
+    </div>
+    <div class="proficiency">
+      <div class="flex justify-between mb-2"><span>Selenium (Java) + TestNG</span><span class="font-mono text-accent-400">Advanced</span></div>
+      <div class="bar"><div class="fill" style="width:85%"></div></div>
+    </div>
+    <div class="proficiency">
+      <div class="flex justify-between mb-2"><span>Cypress / Playwright</span><span class="font-mono text-accent-400">Intermediate</span></div>
+      <div class="bar"><div class="fill" style="width:72%"></div></div>
+    </div>
+    <div class="proficiency">
+      <div class="flex justify-between mb-2"><span>Azure DevOps & CI/CD</span><span class="font-mono text-accent-400">Advanced</span></div>
+      <div class="bar"><div class="fill" style="width:80%"></div></div>
+    </div>
+    <div class="proficiency">
+      <div class="flex justify-between mb-2"><span>AI-Enabled QA Tools</span><span class="font-mono text-accent-400">Advanced</span></div>
+      <div class="bar"><div class="fill" style="width:82%"></div></div>
+    </div>
+    <div class="proficiency">
+      <div class="flex justify-between mb-2"><span>Java / JavaScript</span><span class="font-mono text-accent-400">Intermediate</span></div>
+      <div class="bar"><div class="fill" style="width:75%"></div></div>
     </div>
   </div>
 </section>
@@ -195,11 +290,11 @@
   <div class="flex items-center gap-4 mb-10">
     <span class="font-mono text-accent-400">03.</span>
     <h2 class="text-3xl md:text-4xl font-bold text-white">Experience</h2>
-    <span class="flex-1 h-px bg-white/10"></span>
+    <span class="flex-1 h-px bg-gradient-to-r from-white/10 to-transparent"></span>
   </div>
   <ol class="relative border-l border-white/10 ml-3 space-y-12">
     <li class="pl-8 relative">
-      <span class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-accent-500 ring-4 ring-ink-950"></span>
+      <span class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-accent-500 ring-4 ring-ink-950 shadow-glow"></span>
       <div class="flex flex-wrap items-baseline gap-x-3">
         <h3 class="text-xl font-semibold text-white">Quality Engineering Associate</h3>
         <span class="text-accent-400">@ Accenture</span>
@@ -236,7 +331,7 @@
   <div class="flex items-center gap-4 mb-10">
     <span class="font-mono text-accent-400">04.</span>
     <h2 class="text-3xl md:text-4xl font-bold text-white">Education</h2>
-    <span class="flex-1 h-px bg-white/10"></span>
+    <span class="flex-1 h-px bg-gradient-to-r from-white/10 to-transparent"></span>
   </div>
   <ol class="relative border-l border-white/10 ml-3 space-y-12">
     <li class="pl-8 relative">
@@ -255,25 +350,31 @@
   <div class="flex items-center gap-4 mb-10">
     <span class="font-mono text-accent-400">05.</span>
     <h2 class="text-3xl md:text-4xl font-bold text-white">Key Projects & Contributions</h2>
-    <span class="flex-1 h-px bg-white/10"></span>
+    <span class="flex-1 h-px bg-gradient-to-r from-white/10 to-transparent"></span>
   </div>
   <div class="grid md:grid-cols-2 gap-6">
     <article class="project-card">
       <div class="flex justify-between items-start">
         <svg class="w-10 h-10 text-accent-400" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12.76c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.184-4.183a1.14 1.14 0 01.778-.332 48.294 48.294 0 005.83-.498c1.585-.233 2.708-1.626 2.708-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z"/></svg>
+        <span class="text-xs font-mono text-slate-500">Featured</span>
       </div>
       <h3>Adobe Digital Assets & Web Content</h3>
       <p>Contributed to regression coverage, defect triage, and cross-team testing on a large-scale Adobe Experience Manager (AEM) platform serving enterprise stakeholders.</p>
       <div class="chips"><span>AEM</span><span>Azure DevOps</span><span>Regression</span></div>
     </article>
+
     <article class="project-card">
       <div class="flex justify-between items-start">
         <svg class="w-10 h-10 text-accent-400" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"/></svg>
+        <a href="https://github.com/caarlcena" target="_blank" rel="noopener" class="text-slate-400 hover:text-accent-400 transition" aria-label="GitHub">
+          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .5C5.73.5.5 5.73.5 12A11.5 11.5 0 008.36 22.94c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.51-1.47.11-3.07 0 0 .97-.31 3.18 1.18a11.02 11.02 0 015.79 0c2.21-1.49 3.18-1.18 3.18-1.18.62 1.6.23 2.78.11 3.07.74.81 1.19 1.84 1.19 3.1 0 4.43-2.7 5.4-5.26 5.69.41.35.78 1.05.78 2.12v3.14c0 .31.21.67.8.56A11.5 11.5 0 0023.5 12C23.5 5.73 18.27.5 12 .5z"/></svg>
+        </a>
       </div>
       <h3>Automation Framework Development</h3>
       <p>Built and maintained Selenium (Java) automation projects with Maven and TestNG; expanded into Cypress and Playwright frameworks for modern web automation.</p>
       <div class="chips"><span>Selenium</span><span>Cypress</span><span>Playwright</span><span>Maven</span><span>TestNG</span></div>
     </article>
+
     <article class="project-card">
       <div class="flex justify-between items-start">
         <svg class="w-10 h-10 text-accent-400" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
@@ -282,20 +383,23 @@
       <p>Supported partner teams (e.g., Trados manual performance testing) and contributed to KT/Scrum onboarding for new team members.</p>
       <div class="chips"><span>Trados</span><span>KT</span><span>Scrum</span></div>
     </article>
+
     <article class="project-card">
       <div class="flex justify-between items-start">
         <svg class="w-10 h-10 text-accent-400" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456z"/></svg>
+        <span class="text-xs font-mono text-emerald-400">AI</span>
       </div>
       <h3>AI-Driven QA Innovation</h3>
       <p>Early adopter of generative AI tools (GitHub Copilot, M365 Copilot) for accelerating test design, automation scripting, and defect reporting.</p>
       <div class="chips"><span>GitHub Copilot</span><span>M365 Copilot</span><span>OpenAI Codex</span><span>Cursor</span><span>Claude Code</span></div>
     </article>
-    <article class="project-card">
+
+    <article class="project-card md:col-span-2">
       <div class="flex justify-between items-start">
-        <svg class="w-10 h-10 text-accent-400" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456z"/></svg>
+        <svg class="w-10 h-10 text-accent-400" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z"/></svg>
       </div>
       <h3>VRD – Visual Recognition & Data Annotation Project</h3>
-      <p>Performed high-quality data annotation and validation to support AI/ML visual recognition model training, ensuring accuracy, consistency, and adherence to labeling standards while collaborating with cross-functional AI/ML and QA teams to refine annotation guidelines and improve dataset quality .</p>
+      <p>Performed high-quality data annotation and validation to support AI/ML visual recognition model training, ensuring accuracy, consistency, and adherence to labeling standards while collaborating with cross-functional AI/ML and QA teams to refine annotation guidelines and improve dataset quality.</p>
       <div class="chips"><span>Data Annotation</span><span>AI/ML</span><span>Quality Control</span></div>
     </article>
   </div>
@@ -306,23 +410,26 @@
   <div class="flex items-center gap-4 mb-10">
     <span class="font-mono text-accent-400">06.</span>
     <h2 class="text-3xl md:text-4xl font-bold text-white">Certifications</h2>
-    <span class="flex-1 h-px bg-white/10"></span>
+    <span class="flex-1 h-px bg-gradient-to-r from-white/10 to-transparent"></span>
   </div>
   <div class="grid md:grid-cols-3 gap-6">
     <div class="cert">
       <div class="badge">AZ-900</div>
       <h3>Microsoft Certified: Azure Fundamentals</h3>
       <p>Cloud concepts, core Azure services, security, governance and pricing.</p>
+      <span class="cert-year">Microsoft · 2025</span>
     </div>
     <div class="cert">
       <div class="badge">PL-900</div>
       <h3>Microsoft Certified: Power Platform Fundamentals</h3>
       <p>Power Apps, Power Automate, Power BI and Power Virtual Agents.</p>
+      <span class="cert-year">Microsoft · 2025</span>
     </div>
     <div class="cert">
       <div class="badge">TOSCA</div>
       <h3>Tricentis Tosca Automated Testing</h3>
       <p>Model-based, no-code automation for web application testing.</p>
+      <span class="cert-year">Tricentis · 2024</span>
     </div>
   </div>
 </section>
@@ -330,7 +437,7 @@
 <!-- CONTACT -->
 <section id="contact" class="py-28 px-6 max-w-3xl mx-auto text-center reveal">
   <p class="font-mono text-accent-400 text-sm">What's next?</p>
-  <h2 class="text-4xl md:text-5xl font-extrabold text-white mt-3">Let's build something reliable.</h2>
+  <h2 class="text-4xl md:text-5xl font-extrabold text-white mt-3">Let's build something <span class="gradient-text">reliable</span>.</h2>
   <p class="mt-6 text-slate-400 leading-relaxed">
     Whether you have a QA role to fill, an automation framework to scale, or just want to chat about
     AI-enabled testing — my inbox is always open. I'll get back to you as soon as I can.
@@ -346,9 +453,14 @@
   </div>
 </section>
 
-<footer class="py-8 text-center text-xs font-mono text-slate-600">
+<footer class="py-8 text-center text-xs font-mono text-slate-600 border-t border-white/5">
   Designed & built by Carl Louise Cena · © <span id="year"></span>
 </footer>
+
+<!-- BACK TO TOP -->
+<button id="backTop" class="fixed bottom-6 right-6 w-11 h-11 rounded-full bg-accent-500 text-ink-950 shadow-glow opacity-0 pointer-events-none transition-all hover:bg-accent-400 z-40" aria-label="Back to top">
+  <svg class="w-5 h-5 mx-auto" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"/></svg>
+</button>
 
 <script src="script.js"></script>
 </body>
