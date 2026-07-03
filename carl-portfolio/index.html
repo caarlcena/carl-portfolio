@@ -1,355 +1,775 @@
 <!doctype html>
 <html lang="en">
-<head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Carl Louise Cena — Quality Engineering Associate</title>
-<meta name="description" content="Portfolio of Carl Louise Cena — Quality Engineering Associate at Accenture. Test Automation, AI-Enabled QA, Selenium, Cypress, Playwright." />
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-<script src="https://cdn.tailwindcss.com"></script>
-<link rel="stylesheet" href="styles.css" />
-<script>
-  tailwind.config = {
-    theme: {
-      extend: {
-        fontFamily: { sans: ['Inter','ui-sans-serif','system-ui'], mono: ['JetBrains Mono','ui-monospace'] },
-        colors: {
-          ink:    { 950:'#0a0f1c', 900:'#0d1426', 800:'#111a31', 700:'#172241' },
-          accent: { 400:'#22d3ee', 500:'#06b6d4', 600:'#0891b2' },
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Carl Louise Cena — Quality Engineering Associate</title>
+    <meta
+      name="description"
+      content="Portfolio of Carl Louise Cena — Quality Engineering Associate at Accenture. Test Automation, AI-Enabled QA, Selenium, Cypress, Playwright."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css" />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Inter", "ui-sans-serif", "system-ui"],
+              mono: ["JetBrains Mono", "ui-monospace"],
+            },
+            colors: {
+              ink: {
+                950: "#0a0f1c",
+                900: "#0d1426",
+                800: "#111a31",
+                700: "#172241",
+              },
+              accent: { 400: "#22d3ee", 500: "#06b6d4", 600: "#0891b2" },
+            },
+            boxShadow: { glow: "0 0 40px -10px rgba(34,211,238,0.45)" },
+          },
         },
-        boxShadow: { glow: '0 0 40px -10px rgba(34,211,238,0.45)' }
-      }
-    }
-  }
-</script>
-</head>
-<body class="bg-ink-950 text-slate-200 antialiased selection:bg-accent-500/30 selection:text-white">
+      };
+    </script>
+  </head>
+  <body
+    class="bg-ink-950 text-slate-200 antialiased selection:bg-accent-500/30 selection:text-white"
+  >
+    <!-- NAV -->
+    <header
+      id="nav"
+      class="fixed top-0 inset-x-0 z-50 backdrop-blur bg-ink-950/70 border-b border-white/5"
+    >
+      <nav
+        class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between"
+      >
+        <a
+          href="#home"
+          class="font-mono text-accent-400 font-bold tracking-tight"
+          >&lt;CLC /&gt;</a
+        >
+        <ul class="hidden md:flex gap-8 text-sm">
+          <li><a class="nav-link" href="#about">About</a></li>
+          <li><a class="nav-link" href="#skills">Skills</a></li>
+          <li><a class="nav-link" href="#experience">Experience</a></li>
+          <li><a class="nav-link" href="#projects">Projects</a></li>
+          <li><a class="nav-link" href="#certs">Certifications</a></li>
+          <li><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+        <a
+          href="assets/Carl-Louise-Cena-Resume.pdf"
+          download
+          class="resume-btn hidden md:inline-flex items-center gap-1.5"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-3.5 h-3.5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M12 16V4m0 12l-4-4m4 4l4-4M5 20h14"
+            />
+          </svg>
 
-<!-- NAV -->
-<header id="nav" class="fixed top-0 inset-x-0 z-50 backdrop-blur bg-ink-950/70 border-b border-white/5">
-  <nav class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-    <a href="#home" class="font-mono text-accent-400 font-bold tracking-tight">&lt;CLC /&gt;</a>
-    <ul class="hidden md:flex gap-8 text-sm">
-      <li><a class="nav-link" href="#about">About</a></li>
-      <li><a class="nav-link" href="#skills">Skills</a></li>
-      <li><a class="nav-link" href="#experience">Experience</a></li>
-      <li><a class="nav-link" href="#projects">Projects</a></li>
-      <li><a class="nav-link" href="#certs">Certifications</a></li>
-      <li><a class="nav-link" href="#contact">Contact</a></li>
-    </ul>
-    <a href="#contact" class="hidden md:inline-flex items-center gap-2 text-sm px-4 py-2 rounded-full bg-accent-500/10 border border-accent-400/40 text-accent-400 hover:bg-accent-500/20 transition">Get in touch</a>
-    <button id="burger" class="md:hidden text-slate-200" aria-label="Menu">
-      <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h18M4 13h18M4 19h18"/></svg>
-    </button>
-  </nav>
-  <div id="mobileMenu" class="hidden md:hidden border-t border-white/5 bg-ink-900">
-    <ul class="px-6 py-4 space-y-3 text-sm">
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#certs">Certifications</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </div>
-</header>
+          Resume
+        </a>
+        <button id="burger" class="md:hidden text-slate-200" aria-label="Menu">
+          <svg
+            width="26"
+            height="26"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M4 7h18M4 13h18M4 19h18" />
+          </svg>
+        </button>
+      </nav>
+      <div
+        id="mobileMenu"
+        class="hidden md:hidden border-t border-white/5 bg-ink-900"
+      >
+        <ul class="px-6 py-4 space-y-3 text-sm">
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#certs">Certifications</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </header>
 
-<!-- HERO -->
-<section id="home" class="relative min-h-screen flex items-center pt-24 overflow-hidden">
-  <div class="hero-grid absolute inset-0 opacity-30 pointer-events-none"></div>
-  <div class="absolute -top-40 -right-40 w-[480px] h-[480px] bg-accent-500/20 rounded-full blur-3xl"></div>
-  <div class="absolute -bottom-40 -left-40 w-[480px] h-[480px] bg-indigo-500/10 rounded-full blur-3xl"></div>
-  <div class="relative max-w-6xl mx-auto px-6 grid md:grid-cols-5 gap-10 items-center">
-    <div class="md:col-span-3 reveal">
-      <p class="font-mono text-accent-400 text-sm mb-4">Hello there, I am</p>
-      <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight text-white leading-[1.05]">
-        Carl Louise <span class="text-accent-400">Cena</span>.
-      </h1>
-      <h2 class="mt-4 text-2xl md:text-3xl text-slate-400 font-semibold">
-        I break software — so users don't have to.
-      </h2>
-      <p class="mt-6 max-w-2xl text-slate-400 leading-relaxed">
-        Quality Engineering Associate at <span class="text-slate-200">Accenture</span> with 2+ years of hands-on experience in
-        manual testing, regression testing, test automation, and defect management across enterprise-scale Agile projects.
-        Passionate about <span class="text-accent-400">AI-Enabled QA</span>, automation frameworks, and continuous learning.
-      </p>
-      <div class="mt-8 flex flex-wrap gap-4">
-        <a href="#projects" class="px-6 py-3 rounded-full bg-accent-500 hover:bg-accent-400 text-ink-950 font-semibold shadow-glow transition">View my work</a>
-        <a href="#contact" class="px-6 py-3 rounded-full border border-white/15 hover:border-accent-400 hover:text-accent-400 transition">Contact me</a>
-      </div>
-      <div class="mt-10 flex flex-wrap gap-6 text-sm text-slate-500 font-mono">
-        <span>📍 Cebu City, Philippines</span>
-        <span>✉ caarlcena@gmail.com</span>
-      </div>
-    </div>
-    <div class="md:col-span-2 reveal">
-      <div class="relative mx-auto w-64 h-64 md:w-80 md:h-80">
-        <div class="absolute inset-0 rounded-3xl border border-accent-400/40 rotate-6"></div>
-        <div class="absolute inset-0 rounded-3xl bg-gradient-to-br from-accent-500/20 to-indigo-500/10 backdrop-blur flex items-center justify-center">
-          <div class="text-center">
-            <img src="assets/portrait.svg" alt="Carl Louise Cena" class="mx-auto w-36 h-36 md:w-44 md:h-44 rounded-full object-cover border border-accent-400/30 shadow-glow" />
-            <div class="mt-4 text-3xl font-extrabold text-white">Carl Louise Cena</div>
-            <div class="mt-2 font-mono text-accent-400 text-sm">QE · AI-Enabled QE</div>
+    <!-- HERO -->
+    <section
+      id="home"
+      class="relative min-h-screen flex items-center pt-24 overflow-hidden"
+    >
+      <div
+        class="hero-grid absolute inset-0 opacity-30 pointer-events-none"
+      ></div>
+      <div
+        class="absolute -top-40 -right-40 w-[480px] h-[480px] bg-accent-500/20 rounded-full blur-3xl"
+      ></div>
+      <div
+        class="absolute -bottom-40 -left-40 w-[480px] h-[480px] bg-indigo-500/10 rounded-full blur-3xl"
+      ></div>
+      <div
+        class="relative max-w-6xl mx-auto px-6 grid md:grid-cols-5 gap-10 items-center"
+      >
+        <div class="md:col-span-3 reveal">
+          <p class="font-mono text-accent-400 text-sm mb-4">
+            Hello there, I am
+          </p>
+          <h1
+            class="text-5xl md:text-7xl font-extrabold tracking-tight text-white leading-[1.05]"
+          >
+            Carl Louise <span class="text-accent-400">Cena</span>.
+          </h1>
+          <h2 class="mt-4 text-2xl md:text-3xl text-slate-400 font-semibold">
+            I break software — so users don't have to.
+          </h2>
+          <p class="mt-6 max-w-2xl text-slate-400 leading-relaxed">
+            Quality Engineering Associate at
+            <span class="text-slate-200">Accenture</span> with 2+ years of
+            hands-on experience in manual testing, regression testing, test
+            automation, and defect management across enterprise-scale Agile
+            projects. Passionate about
+            <span class="text-accent-400">AI-Enabled QA</span>, automation
+            frameworks, and continuous learning.
+          </p>
+          <div class="mt-8 flex flex-wrap gap-4">
+            <a
+              href="#projects"
+              class="px-6 py-3 rounded-full bg-accent-500 hover:bg-accent-400 text-ink-950 font-semibold shadow-glow transition"
+              >View my work</a
+            >
+            <a
+              href="#contact"
+              class="px-6 py-3 rounded-full border border-white/15 hover:border-accent-400 hover:text-accent-400 transition"
+              >Contact me</a
+            >
+          </div>
+          <div
+            class="mt-12 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8"
+          >
+            <!-- Location -->
+            <div class="flex items-start gap-4 w-full">
+              <div
+                class="flex-shrink-0 w-12 h-12 rounded-xl bg-accent-500/10 border border-accent-400/30 flex items-center justify-center"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-5 h-5 text-accent-400"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0L6.343 16.657A8 8 0 1117.657 16.657z"
+                  />
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                  />
+                </svg>
+              </div>
+
+              <div>
+                <p
+                  class="text-xs uppercase tracking-[0.25em] text-slate-500 font-semibold"
+                >
+                  Location
+                </p>
+                <p class="mt-2 text-slate-300">Cebu City, Philippines</p>
+              </div>
+            </div>
+
+            <!-- Email -->
+            <div class="flex items-start gap-4 w-full">
+              <div
+                class="flex-shrink-0 w-12 h-12 rounded-xl bg-accent-500/10 border border-accent-400/30 flex items-center justify-center"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-5 h-5 text-accent-400"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+                  <path d="M3 7l9 6 9-6"></path>
+                </svg>
+              </div>
+
+              <div class="flex-1 min-w-0">
+                <p
+                  class="text-xs uppercase tracking-[0.25em] text-slate-500 font-semibold"
+                >
+                  EMAIL
+                </p>
+
+                <a
+                  href="mailto:caarlcena@gmail.com"
+                  class="mt-2 block text-slate-300 hover:text-accent-400 whitespace-nowrap"
+                >
+                  caarlcena@gmail.com
+                </a>
+              </div>
+            </div>
+
+            <!-- LinkedIn -->
+            <div class="flex items-start gap-4 w-full xl:translate-x-8">
+              <div
+                class="flex-shrink-0 w-12 h-12 rounded-xl bg-accent-500/10 border border-accent-400/30 flex items-center justify-center"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-5 h-5 text-accent-400"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M4.98 3.5C4.98 4.88 3.87 6 2.49 6S0 4.88 0 3.5 1.11 1 2.49 1s2.49 1.12 2.49 2.5zM0 8h5v16H0zm7.5 0h4.8v2.2h.1c.67-1.27 2.3-2.6 4.73-2.6C22.2 7.6 24 10.08 24 14.2V24h-5v-8.4c0-2-.04-4.6-2.8-4.6-2.8 0-3.2 2.2-3.2 4.4V24h-5z"
+                  />
+                </svg>
+              </div>
+
+              <div>
+                <p
+                  class="text-xs uppercase tracking-[0.25em] text-slate-500 font-semibold"
+                >
+                  LinkedIn
+                </p>
+                <a
+                  href="https://www.linkedin.com/in/carl-louise-cena-29345a268/"
+                  class="mt-2 block text-slate-300 hover:text-accent-400 transition"
+                >
+                  caarlcena
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="md:col-span-2 reveal">
+          <div class="relative mx-auto w-64 h-64 md:w-80 md:h-80">
+            <div
+              class="absolute inset-0 rounded-3xl border border-accent-400/40 rotate-6"
+            ></div>
+            <div
+              class="absolute inset-0 rounded-3xl bg-gradient-to-br from-accent-500/20 to-indigo-500/10 backdrop-blur flex items-center justify-center"
+            >
+              <div class="text-center">
+                <img
+                  src="assets/profile-pic.JPG"
+                  alt="Carl Louise Cena"
+                  class="mx-auto w-36 h-36 md:w-44 md:h-44 rounded-full object-cover border border-accent-400/30 shadow-glow"
+                />
+                <div class="mt-4 text-3xl font-extrabold text-white">
+                  Carl Louise Cena
+                </div>
+                <div class="mt-2 font-mono text-accent-400 text-sm">
+                  QE · AI-Enabled QE
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-  <a href="#about" class="absolute bottom-6 left-1/2 -translate-x-1/2 text-slate-500 text-xs font-mono animate-bounce">scroll ↓</a>
-</section>
+      <a
+        href="#about"
+        class="absolute bottom-6 left-1/2 -translate-x-1/2 text-slate-500 text-xs font-mono animate-bounce"
+        >scroll ↓</a
+      >
+    </section>
 
-<!-- ABOUT -->
-<section id="about" class="py-28 px-6 max-w-6xl mx-auto reveal">
-  <div class="flex items-center gap-4 mb-10">
-    <span class="font-mono text-accent-400">01.</span>
-    <h2 class="text-3xl md:text-4xl font-bold text-white">About me</h2>
-    <span class="flex-1 h-px bg-white/10"></span>
-  </div>
-  <div class="grid md:grid-cols-3 gap-10">
-    <div class="md:col-span-2 space-y-4 text-slate-400 leading-relaxed">
-      <p>I'm a results-driven <span class="text-accent-400">Quality Engineering Associate</span> based in Cebu City, Philippines, with proven expertise in <span class="text-slate-200">Selenium WebDriver (Java)</span>, <span class="text-slate-200">Cypress (JavaScript)</span>, and <span class="text-slate-200">Playwright</span> for end-to-end web application testing.</p>
-      <p>I'm adept at leveraging <span class="text-slate-200">Azure DevOps</span> for defect lifecycle management and collaborating cross-functionally with developers, business analysts, and stakeholders to deliver high-quality releases.</p>
-      <p>I have a strong foundation in Computer Engineering and I'm Microsoft Azure (AZ-900), Power Platform (PL-900), and Tricentis Tosca certified. Outside of regression cycles, you'll find me exploring how <span class="text-accent-400">Generative AI</span> can supercharge QA workflows.</p>
-      <p class="text-slate-300 font-medium">A few things I bring to the table:</p>
-      <ul class="grid grid-cols-2 gap-2 font-mono text-sm">
-        <li>▸ Hybrid QA Skillset</li>
-        <li>▸ AI-Forward Mindset</li>
-        <li>▸ Agile Collaborator</li>
-        <li>▸ Continuous Learner</li>
-      </ul>
-    </div>
-    <div class="space-y-4">
-      <div class="p-6 rounded-2xl bg-ink-900 border border-white/5">
-        <div class="text-4xl font-extrabold text-accent-400">2+</div>
-        <div class="text-slate-400 text-sm mt-1">Years in QA</div>
+    <!-- ABOUT -->
+    <section id="about" class="py-28 px-6 max-w-6xl mx-auto reveal">
+      <div class="flex items-center gap-4 mb-10">
+        <span class="font-mono text-accent-400">01.</span>
+        <h2 class="text-3xl md:text-4xl font-bold text-white">About me</h2>
+        <span class="flex-1 h-px bg-white/10"></span>
       </div>
-      <div class="p-6 rounded-2xl bg-ink-900 border border-white/5">
-        <div class="text-4xl font-extrabold text-accent-400">3</div>
-        <div class="text-slate-400 text-sm mt-1">Certifications</div>
+      <div class="grid md:grid-cols-3 gap-10">
+        <div class="md:col-span-2 space-y-4 text-slate-400 leading-relaxed">
+          <p>
+            I'm a results-driven
+            <span class="text-accent-400">Quality Engineering Associate</span>
+            based in Cebu City, Philippines, with proven expertise in
+            <span class="text-slate-200">Selenium WebDriver (Java)</span>,
+            <span class="text-slate-200">Cypress (JavaScript)</span>, and
+            <span class="text-slate-200">Playwright</span> for end-to-end web
+            application testing.
+          </p>
+          <p>
+            I'm adept at leveraging
+            <span class="text-slate-200">Azure DevOps</span> for defect
+            lifecycle management and collaborating cross-functionally with
+            developers, business analysts, and stakeholders to deliver
+            high-quality releases.
+          </p>
+          <p>
+            I have a strong foundation in Computer Engineering and I'm Microsoft
+            Azure (AZ-900), Power Platform (PL-900), and Tricentis Tosca
+            certified. Outside of regression cycles, you'll find me exploring
+            how <span class="text-accent-400">Generative AI</span> can
+            supercharge QA workflows.
+          </p>
+          <p class="text-slate-300 font-medium">
+            A few things I bring to the table:
+          </p>
+          <ul class="grid grid-cols-2 gap-2 font-mono text-sm">
+            <li>▸ Hybrid QA Skillset</li>
+            <li>▸ AI-Forward Mindset</li>
+            <li>▸ Agile Collaborator</li>
+            <li>▸ Continuous Learner</li>
+          </ul>
+        </div>
+        <div class="space-y-4">
+          <div class="p-6 rounded-2xl bg-ink-900 border border-white/5">
+            <div class="text-4xl font-extrabold text-accent-400">2+</div>
+            <div class="text-slate-400 text-sm mt-1">Years in QA</div>
+          </div>
+          <div class="p-6 rounded-2xl bg-ink-900 border border-white/5">
+            <div class="text-4xl font-extrabold text-accent-400">3</div>
+            <div class="text-slate-400 text-sm mt-1">Certifications</div>
+          </div>
+          <div class="p-6 rounded-2xl bg-ink-900 border border-white/5">
+            <div class="text-4xl font-extrabold text-accent-400">∞</div>
+            <div class="text-slate-400 text-sm mt-1">Bugs squashed</div>
+          </div>
+        </div>
       </div>
-      <div class="p-6 rounded-2xl bg-ink-900 border border-white/5">
-        <div class="text-4xl font-extrabold text-accent-400">∞</div>
-        <div class="text-slate-400 text-sm mt-1">Bugs squashed</div>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- SKILLS -->
-<section id="skills" class="py-28 px-6 max-w-6xl mx-auto reveal">
-  <div class="flex items-center gap-4 mb-10">
-    <span class="font-mono text-accent-400">02.</span>
-    <h2 class="text-3xl md:text-4xl font-bold text-white">Core Competencies</h2>
-    <span class="flex-1 h-px bg-white/10"></span>
-  </div>
-  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-    <!-- cards -->
-    <div class="skill-card">
-      <h3>Quality Assurance & Testing</h3>
-      <div class="chips">
-        <span>Manual Testing</span><span>Regression Testing</span><span>Functional Testing</span>
-        <span>Release Validation</span><span>Shakeout Testing</span><span>Test Case Design</span><span>Test Execution</span><span>Exploratory Testing</span>
+    <!-- SKILLS -->
+    <section id="skills" class="py-28 px-6 max-w-6xl mx-auto reveal">
+      <div class="flex items-center gap-4 mb-10">
+        <span class="font-mono text-accent-400">02.</span>
+        <h2 class="text-3xl md:text-4xl font-bold text-white">
+          Core Competencies
+        </h2>
+        <span class="flex-1 h-px bg-white/10"></span>
       </div>
-    </div>
-    <div class="skill-card">
-      <h3>Test Automation</h3>
-      <div class="chips">
-        <span>Selenium WebDriver (Java)</span><span>Cypress (JavaScript)</span><span>Playwright</span>
-        <span>TestNG</span><span>WebDriverIO</span><span>Tricentis Tosca</span><span>Maven</span>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- cards -->
+        <div class="skill-card">
+          <h3>Quality Assurance & Testing</h3>
+          <div class="chips">
+            <span>Manual Testing</span><span>Regression Testing</span
+            ><span>Functional Testing</span> <span>Release Validation</span
+            ><span>Shakeout Testing</span><span>Test Case Design</span
+            ><span>Test Execution</span><span>Exploratory Testing</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <h3>Test Automation</h3>
+          <div class="chips">
+            <span>Selenium WebDriver (Java)</span
+            ><span>Cypress (JavaScript)</span><span>Playwright</span>
+            <span>TestNG</span><span>WebDriverIO</span
+            ><span>Tricentis Tosca</span><span>Maven</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <h3>Defect Management</h3>
+          <div class="chips">
+            <span>Azure DevOps</span><span>Bug Reporting</span>
+            <span>Root Cause Analysis</span><span>Defect Triage</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <h3>Programming & Tools</h3>
+          <div class="chips">
+            <span>Java</span><span>JavaScript</span><span>HTML</span
+            ><span>CSS</span> <span>Git</span><span>GitHub</span
+            ><span>VS Code</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <h3>Methodologies</h3>
+          <div class="chips">
+            <span>Agile</span><span>Scrum</span><span>SDLC</span
+            ><span>STLC</span><span>Cross-Team Collaboration</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <h3>AI-Enabled QA</h3>
+          <div class="chips">
+            <span>GitHub Copilot</span><span>Microsoft 365 Copilot</span
+            ><span>OpenAI Codex</span> <span>Cursor</span
+            ><span>Claude Code</span>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="skill-card">
-      <h3>Defect Management</h3>
-      <div class="chips">
-        <span>Azure DevOps</span><span>Bug Reporting</span>
-        <span>Root Cause Analysis</span><span>Defect Triage</span>
-      </div>
-    </div>
-    <div class="skill-card">
-      <h3>Programming & Tools</h3>
-      <div class="chips">
-        <span>Java</span><span>JavaScript</span><span>HTML</span><span>CSS</span>
-        <span>Git</span><span>GitHub</span><span>VS Code</span>
-      </div>
-    </div>
-    <div class="skill-card">
-      <h3>Methodologies</h3>
-      <div class="chips">
-        <span>Agile</span><span>Scrum</span><span>SDLC</span><span>STLC</span><span>Cross-Team Collaboration</span>
-      </div>
-    </div>
-    <div class="skill-card">
-      <h3>AI-Enabled QA</h3>
-      <div class="chips">
-        <span>GitHub Copilot</span><span>Microsoft 365 Copilot</span><span>OpenAI Codex</span>
-        <span>Cursor</span><span>Claude Code</span>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- EXPERIENCE -->
-<section id="experience" class="py-28 px-6 max-w-6xl mx-auto reveal">
-  <div class="flex items-center gap-4 mb-10">
-    <span class="font-mono text-accent-400">03.</span>
-    <h2 class="text-3xl md:text-4xl font-bold text-white">Experience</h2>
-    <span class="flex-1 h-px bg-white/10"></span>
-  </div>
-  <ol class="relative border-l border-white/10 ml-3 space-y-12">
-    <li class="pl-8 relative">
-      <span class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-accent-500 ring-4 ring-ink-950"></span>
-      <div class="flex flex-wrap items-baseline gap-x-3">
-        <h3 class="text-xl font-semibold text-white">Quality Engineering Associate</h3>
-        <span class="text-accent-400">@ Accenture</span>
+    <!-- EXPERIENCE -->
+    <section id="experience" class="py-28 px-6 max-w-6xl mx-auto reveal">
+      <div class="flex items-center gap-4 mb-10">
+        <span class="font-mono text-accent-400">03.</span>
+        <h2 class="text-3xl md:text-4xl font-bold text-white">Experience</h2>
+        <span class="flex-1 h-px bg-white/10"></span>
       </div>
-      <p class="font-mono text-sm text-slate-500 mt-1">2024 – Present · Cebu City, Philippines</p>
-      <ul class="mt-4 space-y-2 text-slate-400">
-        <li>▸ Execute manual and regression testing for web applications and internal tools within the CIO-Adobe project, ensuring high-quality releases across Dev2 and production environments.</li>
-        <li>▸ Design, execute, and maintain comprehensive test scenarios, test cases, and validation activities for release cycles.</li>
-        <li>▸ Log, track, and validate defects in Azure DevOps with detailed reproduction steps, collaborating with developers and stakeholders.</li>
-        <li>▸ Develop and maintain automated test scripts using Selenium WebDriver (Java), Cypress (JavaScript), and Playwright.</li>
-        <li>▸ Participate in release regression, shakeout testing, and cross-team QA support.</li>
-        <li>▸ Support AI enablement initiatives by leveraging GitHub Copilot and M365 Copilot to accelerate test script creation and defect documentation.</li>
-        <li>▸ Provide knowledge transfer (KT) and onboarding support on Scrum practices and automation tooling.</li>
-      </ul>
-    </li>
-    <li class="pl-8 relative">
-      <span class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-slate-600 ring-4 ring-ink-950"></span>
-      <div class="flex flex-wrap items-baseline gap-x-3">
-        <h3 class="text-xl font-semibold text-white">PhilHealth Clerk</h3>
-        <span class="text-accent-400">@ Allegiant Regional Care Hospitals Inc.</span>
-      </div>
-      <p class="font-mono text-sm text-slate-500 mt-1">2023 – 2024 · Philippines</p>
-      <ul class="mt-4 space-y-2 text-slate-400">
-        <li>▸ Processed PhilHealth-related concerns including deductions, reimbursements, and patient payment transactions with high accuracy.</li>
-        <li>▸ Generated reports on claims processing, membership statistics, and financial transactions to support hospital operations and audits.</li>
-        <li>▸ Strengthened communication, customer service, and stakeholder management skills through direct patient and provider interactions.</li>
-      </ul>
-    </li>
-  </ol>
-</section>
+      <ol class="relative border-l border-white/10 ml-3 space-y-12">
+        <li class="pl-8 relative">
+          <span
+            class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-accent-500 ring-4 ring-ink-950"
+          ></span>
+          <div class="flex flex-wrap items-baseline gap-x-3">
+            <h3 class="text-xl font-semibold text-white">
+              Quality Engineering Associate
+            </h3>
+            <span class="text-accent-400">@ Accenture</span>
+          </div>
+          <p class="font-mono text-sm text-slate-500 mt-1">
+            2024 – Present · Cebu City, Philippines
+          </p>
+          <ul class="mt-4 space-y-2 text-slate-400">
+            <li>
+              ▸ Execute manual and regression testing for web applications and
+              internal tools within the CIO-Adobe project, ensuring high-quality
+              releases across Dev2 and production environments.
+            </li>
+            <li>
+              ▸ Design, execute, and maintain comprehensive test scenarios, test
+              cases, and validation activities for release cycles.
+            </li>
+            <li>
+              ▸ Log, track, and validate defects in Azure DevOps with detailed
+              reproduction steps, collaborating with developers and
+              stakeholders.
+            </li>
+            <li>
+              ▸ Develop and maintain automated test scripts using Selenium
+              WebDriver (Java), Cypress (JavaScript), and Playwright.
+            </li>
+            <li>
+              ▸ Participate in release regression, shakeout testing, and
+              cross-team QA support.
+            </li>
+            <li>
+              ▸ Support AI enablement initiatives by leveraging GitHub Copilot
+              and M365 Copilot to accelerate test script creation and defect
+              documentation.
+            </li>
+            <li>
+              ▸ Provide knowledge transfer (KT) and onboarding support on Scrum
+              practices and automation tooling.
+            </li>
+          </ul>
+        </li>
+        <li class="pl-8 relative">
+          <span
+            class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-slate-600 ring-4 ring-ink-950"
+          ></span>
+          <div class="flex flex-wrap items-baseline gap-x-3">
+            <h3 class="text-xl font-semibold text-white">PhilHealth Clerk</h3>
+            <span class="text-accent-400"
+              >@ Allegiant Regional Care Hospitals Inc.</span
+            >
+          </div>
+          <p class="font-mono text-sm text-slate-500 mt-1">
+            2023 – 2024 · Philippines
+          </p>
+          <ul class="mt-4 space-y-2 text-slate-400">
+            <li>
+              ▸ Processed PhilHealth-related concerns including deductions,
+              reimbursements, and patient payment transactions with high
+              accuracy.
+            </li>
+            <li>
+              ▸ Generated reports on claims processing, membership statistics,
+              and financial transactions to support hospital operations and
+              audits.
+            </li>
+            <li>
+              ▸ Strengthened communication, customer service, and stakeholder
+              management skills through direct patient and provider
+              interactions.
+            </li>
+          </ul>
+        </li>
+      </ol>
+    </section>
 
-<!-- EDUCATION -->
-<section id="education" class="py-28 px-6 max-w-6xl mx-auto reveal">
-  <div class="flex items-center gap-4 mb-10">
-    <span class="font-mono text-accent-400">04.</span>
-    <h2 class="text-3xl md:text-4xl font-bold text-white">Education</h2>
-    <span class="flex-1 h-px bg-white/10"></span>
-  </div>
-  <ol class="relative border-l border-white/10 ml-3 space-y-12">
-    <li class="pl-8 relative">
-      <span class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-slate-600 ring-4 ring-ink-950"></span>
-      <div class="flex flex-wrap items-baseline gap-x-3">
-        <h3 class="text-xl font-semibold text-white">B.S. Computer Engineering</h3>
-        <span class="text-accent-400">@ University of Cebu — Banilad</span>
+    <!-- EDUCATION -->
+    <section id="education" class="py-28 px-6 max-w-6xl mx-auto reveal">
+      <div class="flex items-center gap-4 mb-10">
+        <span class="font-mono text-accent-400">04.</span>
+        <h2 class="text-3xl md:text-4xl font-bold text-white">Education</h2>
+        <span class="flex-1 h-px bg-white/10"></span>
       </div>
-      <p class="font-mono text-sm text-slate-500 mt-1">2019 – 2023</p>
-    </li>
-  </ol>
-</section>
+      <ol class="relative border-l border-white/10 ml-3 space-y-12">
+        <li class="pl-8 relative">
+          <span
+            class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-slate-600 ring-4 ring-ink-950"
+          ></span>
+          <div class="flex flex-wrap items-baseline gap-x-3">
+            <h3 class="text-xl font-semibold text-white">
+              B.S. Computer Engineering
+            </h3>
+            <span class="text-accent-400">@ University of Cebu — Banilad</span>
+          </div>
+          <p class="font-mono text-sm text-slate-500 mt-1">2019 – 2023</p>
+        </li>
+      </ol>
+    </section>
 
-<!-- PROJECTS -->
-<section id="projects" class="py-28 px-6 max-w-6xl mx-auto reveal">
-  <div class="flex items-center gap-4 mb-10">
-    <span class="font-mono text-accent-400">05.</span>
-    <h2 class="text-3xl md:text-4xl font-bold text-white">Key Projects & Contributions</h2>
-    <span class="flex-1 h-px bg-white/10"></span>
-  </div>
-  <div class="grid md:grid-cols-2 gap-6">
-    <article class="project-card">
-      <div class="flex justify-between items-start">
-        <svg class="w-10 h-10 text-accent-400" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12.76c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.184-4.183a1.14 1.14 0 01.778-.332 48.294 48.294 0 005.83-.498c1.585-.233 2.708-1.626 2.708-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z"/></svg>
+    <!-- PROJECTS -->
+    <section id="projects" class="py-28 px-6 max-w-6xl mx-auto reveal">
+      <div class="flex items-center gap-4 mb-10">
+        <span class="font-mono text-accent-400">05.</span>
+        <h2 class="text-3xl md:text-4xl font-bold text-white">
+          Key Projects & Contributions
+        </h2>
+        <span class="flex-1 h-px bg-white/10"></span>
       </div>
-      <h3>Adobe Digital Assets & Web Content</h3>
-      <p>Contributed to regression coverage, defect triage, and cross-team testing on a large-scale Adobe Experience Manager (AEM) platform serving enterprise stakeholders.</p>
-      <div class="chips"><span>AEM</span><span>Azure DevOps</span><span>Regression</span></div>
-    </article>
-    <article class="project-card">
-      <div class="flex justify-between items-start">
-        <svg class="w-10 h-10 text-accent-400" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"/></svg>
+      <div class="grid md:grid-cols-2 gap-6">
+        <article class="project-card">
+          <div class="flex justify-between items-start">
+            <svg
+              class="w-10 h-10 text-accent-400"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M2.25 12.76c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.184-4.183a1.14 1.14 0 01.778-.332 48.294 48.294 0 005.83-.498c1.585-.233 2.708-1.626 2.708-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z"
+              />
+            </svg>
+          </div>
+          <h3>Adobe Digital Assets & Web Content</h3>
+          <p>
+            Contributed to regression coverage, defect triage, and cross-team
+            testing on a large-scale Adobe Experience Manager (AEM) platform
+            serving enterprise stakeholders.
+          </p>
+          <div class="chips">
+            <span>AEM</span><span>Azure DevOps</span><span>Regression</span>
+          </div>
+        </article>
+        <article class="project-card">
+          <div class="flex justify-between items-start">
+            <svg
+              class="w-10 h-10 text-accent-400"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"
+              />
+            </svg>
+          </div>
+          <h3>Automation Framework Development</h3>
+          <p>
+            Built and maintained Selenium (Java) automation projects with Maven
+            and TestNG; expanded into Cypress and Playwright frameworks for
+            modern web automation.
+          </p>
+          <div class="chips">
+            <span>Selenium</span><span>Cypress</span><span>Playwright</span
+            ><span>Maven</span><span>TestNG</span>
+          </div>
+        </article>
+        <article class="project-card">
+          <div class="flex justify-between items-start">
+            <svg
+              class="w-10 h-10 text-accent-400"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0z"
+              />
+            </svg>
+          </div>
+          <h3>Cross-Team QA Support</h3>
+          <p>
+            Supported partner teams (e.g., Trados manual performance testing)
+            and contributed to KT/Scrum onboarding for new team members.
+          </p>
+          <div class="chips">
+            <span>Trados</span><span>KT</span><span>Scrum</span>
+          </div>
+        </article>
+        <article class="project-card">
+          <div class="flex justify-between items-start">
+            <svg
+              class="w-10 h-10 text-accent-400"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456z"
+              />
+            </svg>
+          </div>
+          <h3>AI-Driven QA Innovation</h3>
+          <p>
+            Early adopter of generative AI tools (GitHub Copilot, M365 Copilot)
+            for accelerating test design, automation scripting, and defect
+            reporting.
+          </p>
+          <div class="chips">
+            <span>GitHub Copilot</span><span>M365 Copilot</span
+            ><span>OpenAI Codex</span><span>Cursor</span
+            ><span>Claude Code</span>
+          </div>
+        </article>
+        <article class="project-card">
+          <div class="flex justify-between items-start">
+            <svg
+              class="w-10 h-10 text-accent-400"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456z"
+              />
+            </svg>
+          </div>
+          <h3>VRD – Visual Recognition & Data Annotation Project</h3>
+          <p>
+            Performed high-quality data annotation and validation to support
+            AI/ML visual recognition model training, ensuring accuracy,
+            consistency, and adherence to labeling standards while collaborating
+            with cross-functional AI/ML and QA teams to refine annotation
+            guidelines and improve dataset quality .
+          </p>
+          <div class="chips">
+            <span>Data Annotation</span><span>AI/ML</span
+            ><span>Quality Control</span>
+          </div>
+        </article>
       </div>
-      <h3>Automation Framework Development</h3>
-      <p>Built and maintained Selenium (Java) automation projects with Maven and TestNG; expanded into Cypress and Playwright frameworks for modern web automation.</p>
-      <div class="chips"><span>Selenium</span><span>Cypress</span><span>Playwright</span><span>Maven</span><span>TestNG</span></div>
-    </article>
-    <article class="project-card">
-      <div class="flex justify-between items-start">
-        <svg class="w-10 h-10 text-accent-400" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-      </div>
-      <h3>Cross-Team QA Support</h3>
-      <p>Supported partner teams (e.g., Trados manual performance testing) and contributed to KT/Scrum onboarding for new team members.</p>
-      <div class="chips"><span>Trados</span><span>KT</span><span>Scrum</span></div>
-    </article>
-    <article class="project-card">
-      <div class="flex justify-between items-start">
-        <svg class="w-10 h-10 text-accent-400" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456z"/></svg>
-      </div>
-      <h3>AI-Driven QA Innovation</h3>
-      <p>Early adopter of generative AI tools (GitHub Copilot, M365 Copilot) for accelerating test design, automation scripting, and defect reporting.</p>
-      <div class="chips"><span>GitHub Copilot</span><span>M365 Copilot</span><span>OpenAI Codex</span><span>Cursor</span><span>Claude Code</span></div>
-    </article>
-    <article class="project-card">
-      <div class="flex justify-between items-start">
-        <svg class="w-10 h-10 text-accent-400" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456z"/></svg>
-      </div>
-      <h3>VRD – Visual Recognition & Data Annotation Project</h3>
-      <p>Performed high-quality data annotation and validation to support AI/ML visual recognition model training, ensuring accuracy, consistency, and adherence to labeling standards while collaborating with cross-functional AI/ML and QA teams to refine annotation guidelines and improve dataset quality .</p>
-      <div class="chips"><span>Data Annotation</span><span>AI/ML</span><span>Quality Control</span></div>
-    </article>
-  </div>
-</section>
+    </section>
 
-<!-- CERTIFICATIONS -->
-<section id="certs" class="py-28 px-6 max-w-6xl mx-auto reveal">
-  <div class="flex items-center gap-4 mb-10">
-    <span class="font-mono text-accent-400">06.</span>
-    <h2 class="text-3xl md:text-4xl font-bold text-white">Certifications</h2>
-    <span class="flex-1 h-px bg-white/10"></span>
-  </div>
-  <div class="grid md:grid-cols-3 gap-6">
-    <div class="cert">
-      <div class="badge">AZ-900</div>
-      <h3>Microsoft Certified: Azure Fundamentals</h3>
-      <p>Cloud concepts, core Azure services, security, governance and pricing.</p>
-    </div>
-    <div class="cert">
-      <div class="badge">PL-900</div>
-      <h3>Microsoft Certified: Power Platform Fundamentals</h3>
-      <p>Power Apps, Power Automate, Power BI and Power Virtual Agents.</p>
-    </div>
-    <div class="cert">
-      <div class="badge">TOSCA</div>
-      <h3>Tricentis Tosca Automated Testing</h3>
-      <p>Model-based, no-code automation for web application testing.</p>
-    </div>
-  </div>
-</section>
+    <!-- CERTIFICATIONS -->
+    <section id="certs" class="pt-28 pb-40 px-6 max-w-6xl mx-auto reveal">
+      <div class="flex items-center gap-4 mb-10">
+        <span class="font-mono text-accent-400">06.</span>
+        <h2 class="text-3xl md:text-4xl font-bold text-white">
+          Certifications
+        </h2>
+        <span class="flex-1 h-px bg-white/10"></span>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6">
+        <a
+          href="https://learn.microsoft.com/en-us/users/cenacarllouise-3082/credentials/c34f522cb64e2525?ref=https%3A%2F%2Fwww.linkedin.com%2F"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="cert cert-link-card"
+        >
+          <div class="badge">AZ-900</div>
 
-<!-- CONTACT -->
-<section id="contact" class="py-28 px-6 max-w-3xl mx-auto text-center reveal">
-  <p class="font-mono text-accent-400 text-sm">What's next?</p>
-  <h2 class="text-4xl md:text-5xl font-extrabold text-white mt-3">Let's build something reliable.</h2>
-  <p class="mt-6 text-slate-400 leading-relaxed">
-    Whether you have a QA role to fill, an automation framework to scale, or just want to chat about
-    AI-enabled testing — my inbox is always open. I'll get back to you as soon as I can.
-  </p>
-  <div class="mt-10 flex flex-wrap justify-center gap-4">
-    <a href="mailto:caarlcena@gmail.com" class="px-7 py-3 rounded-full bg-accent-500 hover:bg-accent-400 text-ink-950 font-semibold shadow-glow transition">Say hello</a>
-    <a href="https://caarlcena.netlify.app" target="_blank" rel="noopener" class="px-7 py-3 rounded-full border border-white/15 hover:border-accent-400 hover:text-accent-400 transition">Visit my site</a>
-  </div>
-  <div class="mt-10 grid sm:grid-cols-3 gap-4 text-sm font-mono text-slate-500">
-    <div>✉ caarlcena@gmail.com</div>
-    <div>☎ +63 977 322 7142</div>
-    <div>📍 Cebu City, Philippines</div>
-  </div>
-</section>
+          <h3>Microsoft Certified: Azure Fundamentals</h3>
 
-<footer class="py-8 text-center text-xs font-mono text-slate-600">
-  Designed & built by Carl Louise Cena · © <span id="year"></span>
-</footer>
+          <p>
+            Cloud concepts, core Azure services, security, governance and
+            pricing.
+          </p>
+        </a>
 
-<script src="script.js"></script>
-</body>
+        <a
+          href="https://learn.microsoft.com/en-us/users/cenacarllouise-3082/credentials/e4c5bb4b9206bb7a?ref=https%3A%2F%2Fwww.linkedin.com%2F"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="cert cert-link-card"
+        >
+          <div class="badge">PL-900</div>
+
+          <h3>Microsoft Certified: Power Platform Fundamentals</h3>
+
+          <p>Power Apps, Power Automate, Power BI and Power Virtual Agents.</p>
+        </a>
+
+        <a
+          href="https://academy.tricentis.com/share/gamification/badges/external/916674d8-7d0f-4dba-95eb-14e3254c02f3?lang=en"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="cert cert-link-card"
+        >
+          <div class="badge">TOSCA</div>
+
+          <h3>Tricentis Tosca Automated Testing</h3>
+
+          <p>Model-based, no-code automation for web application testing.</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section
+      id="contact"
+      class="pt-16 pb-28 px-6 max-w-3xl mx-auto text-center reveal"
+    >
+      <p class="font-mono text-accent-400 text-sm">What's next?</p>
+      <h2 class="text-4xl md:text-5xl font-extrabold text-white mt-3">
+        Let's build something reliable.
+      </h2>
+      <p class="mt-6 text-slate-400 leading-relaxed">
+        Whether you have a QA role to fill, an automation framework to scale, or
+        just want to chat about AI-enabled testing — my inbox is always open.
+        I'll get back to you as soon as I can.
+      </p>
+      <div class="mt-10 flex flex-wrap justify-center gap-4">
+        <a
+          href="mailto:caarlcena@gmail.com"
+          class="px-7 py-3 rounded-full bg-accent-500 hover:bg-accent-400 text-ink-950 font-semibold shadow-glow transition"
+          >Say hello</a
+        >
+      </div>
+      <div
+        class="mt-10 grid sm:grid-cols-3 gap-4 text-sm font-mono text-slate-500"
+      >
+        <div>✉ caarlcena@gmail.com</div>
+        <div>☎ +63 977 322 7142</div>
+        <div>📍 Cebu City, Philippines</div>
+      </div>
+    </section>
+
+    <footer class="pt-12 pb-10 text-center text-xs font-mono text-slate-600">
+      Designed & built by Carl Louise Cena · © <span id="year"></span>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
 </html>

@@ -1,31 +1,64 @@
-
 // Footer year
-document.getElementById('year').textContent = new Date().getFullYear();
+document.getElementById("year").textContent = new Date().getFullYear();
 
 // Mobile menu
-const burger = document.getElementById('burger');
-const mobileMenu = document.getElementById('mobileMenu');
-burger?.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
-mobileMenu?.querySelectorAll('a').forEach(a =>
-  a.addEventListener('click', () => mobileMenu.classList.add('hidden'))
-);
+const burger = document.getElementById("burger");
+const mobileMenu = document.getElementById("mobileMenu");
+burger?.addEventListener("click", () => mobileMenu.classList.toggle("hidden"));
+mobileMenu
+  ?.querySelectorAll("a")
+  .forEach((a) =>
+    a.addEventListener("click", () => mobileMenu.classList.add("hidden")),
+  );
 
 // Reveal on scroll
-const io = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
-}, { threshold: 0.12 });
-document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+const io = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) e.target.classList.add("in");
+    });
+  },
+  { threshold: 0.12 },
+);
+document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
 
 // Active nav link
-const sections = ['about','skills','experience','projects','certs','contact'];
-const navLinks = document.querySelectorAll('.nav-link');
-const spy = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting){
-      navLinks.forEach(l => l.classList.remove('active'));
-      const active = document.querySelector(`.nav-link[href="#${e.target.id}"]`);
-      active?.classList.add('active');
+const navLinks = document.querySelectorAll(".nav-link");
+const sections = document.querySelectorAll("section[id]");
+
+function updateActiveLink() {
+  const middle = window.innerHeight / 2;
+
+  // Walk sections top-to-bottom and keep the last one whose top has
+  // scrolled past the midpoint line. This correctly handles short
+  // sections (like Contact) whose rect might never simultaneously
+  // straddle the midpoint on both top and bottom.
+  let current = sections[0]?.id ?? null;
+
+  sections.forEach((section) => {
+    const rect = section.getBoundingClientRect();
+    if (rect.top <= middle) {
+      current = section.id;
     }
   });
-}, { rootMargin: '-40% 0px -55% 0px' });
-sections.forEach(id => { const el = document.getElementById(id); if (el) spy.observe(el); });
+
+  // If we've scrolled all the way to the bottom of the page, always
+  // land on the last section regardless of its rect math.
+  const atBottom =
+    Math.ceil(window.scrollY + window.innerHeight) >=
+    document.documentElement.scrollHeight;
+
+  if (atBottom) {
+    current = sections[sections.length - 1].id;
+  }
+
+  navLinks.forEach((link) => {
+    link.classList.toggle(
+      "active",
+      link.getAttribute("href") === `#${current}`,
+    );
+  });
+}
+
+window.addEventListener("scroll", updateActiveLink);
+window.addEventListener("load", updateActiveLink);
